@@ -7,7 +7,7 @@ When user hasn’t searched for a specific city, show upcoming events from all c
 Given user hasn’t searched for any city;
 When the user opens the app;
 Then the user should see a list of upcoming events.
-<br>
+<br> <br>
 Show/Hide Event Details. 
 As a user, I should be able to show/hide event details so that I can get more information about certain events	
 Given user hasn’t opened any event details, When the user clicks show details, Then the user should be able to learn more about the event
