@@ -1,5 +1,5 @@
 # meet
-Filter events by city.
+Filter events by city. <br>
 As a user,
 I should be able to filter events by city
 So that I can see a list of events taking place in that city.
