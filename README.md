@@ -27,3 +27,5 @@ Given the user has downloaded the app, When the user clicks on a shortcut link, 
 Display Charts Visualizing Event Details.
 As a user, I should be able to view display charts visualizing event details so that I can easily see event details and compare what events are happening in which cities
 Given the user has searched for events, When the user clicks on a button to display charts, Then they should be able to see a chart displaying upcoming events in each city
+<br> <br>
+This app will be utilizing serverless functions> This app will be using serverless to access Google Calendar API and get authorization so that users can get access to the calendar app and related events on the calendar. The cloud server used for this app will be AWS Lambda
