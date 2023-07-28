@@ -31,4 +31,4 @@ functions:
     events: 
       - http: 
           path: api/get-events/{access_token}
-          mehtod: get
+          method: get
