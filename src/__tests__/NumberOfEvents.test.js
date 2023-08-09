@@ -1,12 +1,16 @@
 // src/__tests__/NumberOfEvents.test.js
+import React from "react";
 import NumberOfEvents from "../components/NumberOfEvents";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent, within } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
+import App from "../App";
+
+// unit test 
 
 describe('<NumberOfEvents/> component',() => {
     let NumEventsComponent;
     beforeEach( () => {
-        NumEventsComponent = render (<NumberOfEvents/>);
+        NumEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}}/>);
     });
 
     test('NumberOfEvents contains a textbox element', () => {
@@ -26,4 +30,28 @@ describe('<NumberOfEvents/> component',() => {
                    expect(inputField).toHaveValue(10);
         }); 
     });
-})
+});
+
+// integratiion test 
+
+describe('<NumberOfEvents/> integration', () => {
+    let NumEventsComponent;
+    beforeEach( () => {
+        NumEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}}/>);
+    });
+
+    test('Number of events rendered matches number NOE input by user', async () =>{
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+
+        const NOEDOM = AppDOM.querySelector('#number-of-events');
+        const NOEInput = within(NOEDOM).queryByRole('spinbutton');
+        
+        await fireEvent.change(NOEInput, {target:{value: '10'}});
+
+        const EventListDOM = AppDOM.querySelector('#event-list');
+        const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem'); 
+
+        expect(allRenderedEventItems.length).toBe(10);
+    });
+});
