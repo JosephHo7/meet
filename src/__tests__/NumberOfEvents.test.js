@@ -47,7 +47,7 @@ describe('<NumberOfEvents/> integration', () => {
         const NOEDOM = AppDOM.querySelector('#number-of-events');
         const NOEInput = within(NOEDOM).queryByRole('spinbutton');
         
-        await fireEvent.change(NOEInput, {target:{value: '10'}});
+        await userEvent.type(NOEInput, '{backspace}{backspace}10');
 
         const EventListDOM = AppDOM.querySelector('#event-list');
         const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem'); 
