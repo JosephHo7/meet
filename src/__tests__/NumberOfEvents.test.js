@@ -10,7 +10,9 @@ import App from "../App";
 describe('<NumberOfEvents/> component',() => {
     let NumEventsComponent;
     beforeEach( () => {
-        NumEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}}/>);
+        NumEventsComponent = render(<NumberOfEvents 
+            setCurrentNOE={()=>{}}
+            setErrorAlert={()=>{}}/>);
     });
 
     test('NumberOfEvents contains a textbox element', () => {
@@ -37,7 +39,9 @@ describe('<NumberOfEvents/> component',() => {
 describe('<NumberOfEvents/> integration', () => {
     let NumEventsComponent;
     beforeEach( () => {
-        NumEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}}/>);
+        NumEventsComponent = render(<NumberOfEvents 
+            setCurrentNOE={()=>{}}
+            setErrorAlert={()=>{}}/>);
     });
 
     test('Number of events rendered matches number NOE input by user', async () =>{
