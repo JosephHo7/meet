@@ -32,7 +32,7 @@ const App = () => {
       setWarningAlert('');
     }else {
       setWarningAlert('The display list has been loaded from the cache');
-    }
+    };
     fetchData();
   },[currentCity, currentNOE]);
 
